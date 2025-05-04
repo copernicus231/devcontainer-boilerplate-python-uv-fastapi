@@ -1,0 +1,17 @@
+[project]
+name = "sample-service"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi[standard]>=0.115.12",
+    "typer>=0.15.3",
+    "uvicorn>=0.34.2",
+]
+
+[project.scripts]
+"sample-service" = "sample_service:app"
+
+[tool.uv]
+package = true

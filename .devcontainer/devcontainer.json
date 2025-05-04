@@ -1,0 +1,33 @@
+{
+    "name": "Python uv fastapi sample service",
+    "image":"debian:bookworm-slim",
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils": {},
+        "ghcr.io/va-h/devcontainers-features/uv": {},
+        "ghcr.io/devcontainers/features/python": {"version": "3.12"}
+    },
+    "containerUser": "vscode",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "python.defaultInterpreterPath": "${containerWorkspaceFolder}/sample-service/.venv/bin/python"
+            },
+            "extensions": [
+                "tamasfe.even-better-toml",
+                "bierner.markdown-mermaid"
+            ]
+        }
+    },
+    "containerEnv": {
+        "SERVICE_ENVIROMENT": "dev",
+        "UV_LINK_MODE":"copy"
+    },
+    "mounts": ["source=${localEnv:HOME}/.cache,target=/home/vscode/.cache,type=bind,consistency=cached"],
+    //Enables GPU support
+    //"runArgs": [
+    //    "--gpus","all"
+    //],
+    "initializeCommand": " mkdir -p ${localEnv:HOME}/.cache",
+    "postCreateCommand": "cd ${containerWorkspaceFolder}/sample-service && uv sync"
+
+}
