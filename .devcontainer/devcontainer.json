@@ -25,7 +25,7 @@
     "mounts": ["source=${localEnv:HOME}/.cache,target=/home/vscode/.cache,type=bind,consistency=cached"],
     //Enables GPU support if detected
     "hostRequirements": {
-        "gpu": true
+        "gpu": "optional"
     },
     "initializeCommand": " mkdir -p ${localEnv:HOME}/.cache",
     "postCreateCommand": "cd ${containerWorkspaceFolder}/sample-service && uv sync"
