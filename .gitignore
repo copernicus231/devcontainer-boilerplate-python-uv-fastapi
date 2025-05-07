@@ -1,0 +1,3 @@
+sample-service/src/sample_service.egg-info/
+sample-service/src/sample_service/__pycache__/
+sample-service/uv.lock
