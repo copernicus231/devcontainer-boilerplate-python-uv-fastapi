@@ -23,10 +23,10 @@
         "UV_LINK_MODE":"copy"
     },
     "mounts": ["source=${localEnv:HOME}/.cache,target=/home/vscode/.cache,type=bind,consistency=cached"],
-    //Enables GPU support
-    //"runArgs": [
-    //    "--gpus","all"
-    //],
+    //Enables GPU support if detected
+    "hostRequirements": {
+        "gpu": true
+    },
     "initializeCommand": " mkdir -p ${localEnv:HOME}/.cache",
     "postCreateCommand": "cd ${containerWorkspaceFolder}/sample-service && uv sync"
 
